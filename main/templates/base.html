@@ -2,10 +2,15 @@
 
 <!doctype html>
 <html lang="en">
+
+
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   
+   
+    <title>E-Travel</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -18,7 +23,9 @@
     <!-- Your custom styles (optional) -->
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
+  </head>
 
+  
     <!--Navbar-->
     <nav class="navbar navbar-expand-lg navbar-dark blue-gradient">
 
@@ -72,14 +79,11 @@
   
     </nav>
     <!--/.Navbar-->
-   
-   
-    <title>E-Travel</title>
-  </head>
-  <body>
-    <center>
-    <h1>Hello, world!</h1>
-  </center>
+
+{% block content %}
+{% endblock content %}
+
+
 <!--Card-->
 <div class="card m-5" style="width: 22rem;">
 
@@ -104,6 +108,74 @@
   </div>
   <!--/.Card-->
 
+
+  
+
+<!-- Footer -->
+<footer class="page-footer font-small indigo">
+
+  <!-- Footer Links -->
+  <div class="container">
+
+    <!-- Grid row-->
+    <div class="row text-center d-flex justify-content-center pt-4">
+
+      <!-- Grid column -->
+      <div class="col-md-2">
+        <h6 class="text-uppercase font-weight-bold">
+          <a href="#!">About us</a>
+        </h6>
+      </div>
+      <!-- Grid column -->
+
+
+    </div>
+    <!-- Grid row-->
+    <hr class="rgba-white-light" style="margin: 0 15%;">
+
+    <!-- Grid row-->
+    <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
+
+      <!-- Grid column -->
+      <div class="col-md-8 col-12 mt-3">
+        <p style="line-height: 1.7rem">Dummy Text here.</p>
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row-->
+    <hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%;">
+
+    <!-- Grid row-->
+    <div class="row pb-1">
+
+      <!-- Grid column -->
+      <div class="col-md-12">
+
+        <div class="mb-3 flex-center">
+
+          <a href="https://github.com/zahir1509/project-ap-etravel" target="_blank"><i class="fab fa-github mr-3"></i>
+          </a>
+
+        </div>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row-->
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
