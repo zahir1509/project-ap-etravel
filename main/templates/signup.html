@@ -25,9 +25,8 @@
 
 </head>
 
-
-<div class="d-flex justify-content-center" style="padding-top: 1%;">
-
+ <div class="container" style="padding-top: 1%;">
+<div class="justify-content-center">
 <!-- Material form register -->
 <div class="card">
 
@@ -45,42 +44,60 @@
                 <div class="col">
                     <!-- First name -->
                     <div class="md-form">
-                        <input type="text" id="materialRegisterFormFirstName" class="form-control">
-                        <label for="materialRegisterFormFirstName">First name</label>
+                        <label>First name</label>
+                        {{form.first_name}}
+                      
                     </div>
                 </div>
                 <div class="col">
                     <!-- Last name -->
                     <div class="md-form">
-                        <input type="email" id="materialRegisterFormLastName" class="form-control">
-                        <label for="materialRegisterFormLastName">Last name</label>
+                        <label>Last name</label>
+                        {{form.last_name}}
+                       
                     </div>
                 </div>
             </div>
 
+            <!-- Username -->
+            <div class="md-form mt-0">
+                   <label>Username</label>
+                {{form.username}}
+             
+            </div>
+
             <!-- E-mail -->
             <div class="md-form mt-0">
-                <input type="email" id="materialRegisterFormEmail" class="form-control">
-                <label for="materialRegisterFormEmail">E-mail</label>
+                <label>E-mail</label>
+                {{form.email}}
+               
             </div>
 
             <!-- Password -->
             <div class="md-form">
-                <input type="password" id="materialRegisterFormPassword" class="form-control" aria-describedby="materialRegisterFormPasswordHelpBlock">
-                <label for="materialRegisterFormPassword">Password</label>
+                <label>Password</label>
+                {{form.password1}}
+                
                 <small id="materialRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
                     At least 8 characters and 1 digit
                 </small>
             </div>
+         
+            <!-- Password -->
+          <div class="md-form">
+            <label>Confirm Password</label>
+            {{form.password2}}
+            
+        </div>
 
             <!-- Sign up button -->
             <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Sign in</button>
+
             <hr>
 
             <!-- Terms of service -->
-            <p>By clicking
-                <em>Sign up</em> you agree to our
-                <a href="" target="_blank">terms of service</a>
+            <p>Already have an account?
+                <a href="{% url 'login' %}">Sign in.</a>
 
         </form>
         <!-- Form -->
@@ -91,33 +108,7 @@
 <!-- Material form register -->
 
 </div>
-
+</div>
 
 </html>
-<h3>Signup</h3>
-
-<form method = "POST" action="">
-    {% csrf_token %}
-    {{form.first_name.label}}
-    {{form.first_name}}
-
-
-    {{form.last_name.label}}
-    {{form.last_name}}
-
-    {{form.username.label}}
-    {{form.username}}
-
-    {{form.email.label}}
-    {{form.email}}
-
-    {{form.password1.label}}
-    {{form.password1}}
-
-    {{form.password2.label}}
-    {{form.password2}}
-
-
-    <input type="submit" name="Create User">
-</form>
 
