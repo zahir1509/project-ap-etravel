@@ -91,15 +91,16 @@
         </div>
 
             <!-- Sign up button -->
-            <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Sign in</button>
+            <input class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit" name="CreateUser">Sign in</button>
 
             <hr>
-
-            <!-- Terms of service -->
-            <p>Already have an account?
-                <a href="{% url 'login' %}">Sign in.</a>
+        
 
         </form>
+        <p>Already have an account?
+            <a href="{% url 'login' %}">Sign in.</a>
+        {{form.errors}}
+
         <!-- Form -->
 
     </div>
