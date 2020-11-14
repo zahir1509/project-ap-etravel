@@ -24,9 +24,13 @@ def loginPage(request):
         else:
             messages.info(request, 'Username OR Password is incorrect.')
             
-            
+
     context = {}
     return render(request, 'login.html', context)
+
+def logoutUser(request):
+    logout(request)
+    return redirect('login')
 
 def signupPage(request):
     form = CreateUserForm()
