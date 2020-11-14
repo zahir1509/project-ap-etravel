@@ -50,7 +50,7 @@
         <ul class="navbar-nav mr-auto">
 
           <li class="nav-item">
-            <a class="nav-link" href="#" target="_blank">Browse Hotels</a>
+            <a class="nav-link" href="{% url 'booking' %}">Browse Hotels</a>
           </li>
           
         </ul>
@@ -61,7 +61,7 @@
         <ul class="navbar-nav nav-flex-icons">
           {% if request.user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link">Welcome {{request.user.first_name}} {{request.user.last_name}}!
+            <a class="nav-link">Welcome {{request.user.first_name}} {{request.user.last_name}} !
             </a>
           </li>
    

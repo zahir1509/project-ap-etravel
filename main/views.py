@@ -11,6 +11,9 @@ from .forms import *
 def homepage(request):
     return render(request, 'home.html')
 
+def bookingpage(request):
+    return render(request, 'booking.html')
+
 def loginPage(request):
     if request.user.is_authenticated:
         return redirect('home')
