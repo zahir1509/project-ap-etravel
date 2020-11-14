@@ -40,6 +40,7 @@ def loginPage(request):
 
 def logoutUser(request):
     logout(request)
+    messages.success(request, 'You have successfully signed out.')
     return redirect('login')
 
 def signupPage(request):
