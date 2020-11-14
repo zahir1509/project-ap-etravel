@@ -14,6 +14,9 @@ def homepage(request):
 def bookingpage(request):
     return render(request, 'booking.html')
 
+def accountpage(request):
+    return render(request, 'myaccount.html')
+
 def loginPage(request):
     if request.user.is_authenticated:
         return redirect('home')
