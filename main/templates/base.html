@@ -61,13 +61,12 @@
         <ul class="navbar-nav nav-flex-icons">
           {% if request.user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link">Welcome {{request.user.first_name}} {{request.user.last_name}} !
+            <a class="nav-link">Welcome, {{request.user.first_name}}
             </a>
           </li>
    
           <li class="nav-item">
-            <a href="https://github.com/mdbootstrap/bootstrap-material-design" class="nav-link border border-light rounded"
-              target="_blank">
+            <a href="{% url 'myaccount' %}" class="nav-link border border-light rounded">
               <i class="fas fa-user mr-2"></i>My Account
             </a>
           </li>

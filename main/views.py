@@ -14,6 +14,9 @@ def homepage(request):
 def bookingpage(request):
     return render(request, 'booking.html')
 
+def accountpage(request):
+    return render(request, 'myaccount.html')
+
 def loginPage(request):
     if request.user.is_authenticated:
         return redirect('home')
@@ -37,6 +40,7 @@ def loginPage(request):
 
 def logoutUser(request):
     logout(request)
+    messages.success(request, 'You have successfully signed out.')
     return redirect('login')
 
 def signupPage(request):
