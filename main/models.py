@@ -15,7 +15,7 @@ class Hotel(models.Model):
 
     #Not sure how to use ForeignKey here
     #hotel_location = models.CharField(max_length=20, default="") 
-    #hotel_city = models.ForeignKey(Location, on_delete=models.CASCADE)
+    hotel_city = models.ForeignKey(Location, on_delete=models.CASCADE)
 
     hotel_address = models.CharField(max_length=40, default="")
     hotel_price = models.IntegerField()
