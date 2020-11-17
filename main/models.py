@@ -35,6 +35,10 @@ class HotelRating(models.Model):
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE, null=True)
     rating = models.IntegerField(null=True)
 
+    def __str__(self):
+        return "Hotel: " + self.hotel.hotel_name + " | User: " + self.user.username
+
+
 class Reservation(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     reservation_name = models.CharField(max_length=40, default="")
