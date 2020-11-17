@@ -11,8 +11,8 @@ from .forms import *
 def homepage(request):
     return render(request, 'home.html')
 
-def bookingpage(request):
-    return render(request, 'booking.html')
+def browsehotel(request):
+    return render(request, 'browsehotel.html')
 
 def accountpage(request):
     return render(request, 'myaccount.html')
