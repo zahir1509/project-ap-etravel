@@ -35,11 +35,11 @@ class HotelRating(models.Model):
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE, null=True)
     rating = models.IntegerField(null=True)
 
-class Booking(models.Model):
+class Reservation(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
-    bookname = models.CharField(max_length=40, default="")
+    reservation_name = models.CharField(max_length=40, default="")
     timestamp = models.DateTimeField(default=datetime.now())
-    people = models.IntegerField(default=1)
+    num_people = models.IntegerField(default=1)
     rooms = models.IntegerField(default=1)
 
     cost = models.IntegerField(default=0)
