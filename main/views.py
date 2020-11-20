@@ -15,7 +15,10 @@ def browsehotel(request):
     return render(request, 'browsehotel.html')
 
 def accountpage(request):
-    return render(request, 'myaccount.html')
+    if request.user.is_authenticated:
+        return render(request, 'myaccount.html')
+    else:
+        return redirect('login')
 
 def loginPage(request):
     if request.user.is_authenticated:
