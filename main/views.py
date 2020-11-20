@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.http import Http404
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -64,3 +64,16 @@ def signupPage(request):
 
     context = {'form':form}
     return render(request, 'signup.html', context)
+
+def edit_profile(request):
+    if request.method == 'POST':
+        form = EditProfileForm(request.POST, instance=request.user)
+    
+        if form.is_valid():
+            form.save()
+            return redirect('myaccount')
+    
+    else:
+        form = EditProfileForm(instance=request.user)
+        args = {'form':form}
+        return render(request, 'editprofile.html', args)
