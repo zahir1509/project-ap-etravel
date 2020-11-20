@@ -40,6 +40,14 @@
 					</span>
 				</div>
 
+				
+				{% if form.errors %}
+				<div class="alert alert-danger" role="alert" style="margin-top: 1%;">    
+				<center>{{form.errors}}</center>
+			  </div>
+				{% endif %}
+
+
 				<form class="login100-form validate-form" method="POST">
                     {% csrf_token %}
 					<div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
@@ -99,9 +107,6 @@
 						</button>
                     </div>
                     
-                    <div>
-                        {{form.errors}}
-                    </div>
                         
 				</form>
 			</div>

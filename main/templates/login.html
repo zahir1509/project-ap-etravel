@@ -40,11 +40,11 @@
 					</span>
 				</div>
           
-        <div>
-          {% for message in messages%}
-          <center><p>{{message}}</p></center>   
-          {% endfor %}
-        </div>
+				{% for message in messages %}
+				<div class="alert alert-{{message.tags}}" role="alert" style="margin-top: 1%;">    
+				<center>{{message}}</center>
+			  </div>
+				{% endfor %}
 
 				<form class="login100-form validate-form" method="POST">
           {% csrf_token %}
