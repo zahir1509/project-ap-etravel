@@ -39,11 +39,14 @@
 
       <!--Section: More-->
       <section>
+        <center>
 
         <h2 class="my-5 h3 text-center">User Details</h2>
-
+        
+        {% for message in messages %}
+        {{message}}
+        {% endfor %}
         <hr class="my-5">
-        <center>
           <div class="row">
             <div class="col-sm">
               <b>First Name</b>
@@ -84,7 +87,7 @@
             </div>
           </div>
 
-          <a href="{% url 'editprofile' %}">Update Profile</a>
+          <a href="{% url 'editprofile' %}">Update Profile</a> | <a href="{% url 'editpassword' %}">Change Password</a> 
         
         </center>
  
