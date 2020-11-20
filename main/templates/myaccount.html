@@ -40,13 +40,13 @@
       <!--Section: More-->
       <section>
         <center>
-
+          {% for message in messages %}
+          <div class="alert alert-primary" role="alert" style="margin-top: 2%;">    
+          {{message}}
+        </div>
+          {% endfor %}
         <h2 class="my-5 h3 text-center">User Details</h2>
         
-        {% for message in messages %}
-        {{message}}
-        {% endfor %}
-        <hr class="my-5">
           <div class="row">
             <div class="col-sm">
               <b>First Name</b>

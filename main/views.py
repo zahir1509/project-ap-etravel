@@ -89,7 +89,7 @@ def change_password(request):
             messages.success(request, 'Your password was successfully changed.')
             return redirect('myaccount')
         else:
-            messages.warning(request, 'Form data was invalid.')
+            messages.warning(request, 'Invalid Data provided. Please try again.')
             return redirect('editpassword')
 
     else:
