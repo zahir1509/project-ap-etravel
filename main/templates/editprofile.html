@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Profile{% endblock %}
+
+
+
+{% block content %}
+
+
+        <div style="background-image: url('https://i.pinimg.com/564x/27/d5/5e/27d55e41fedf725d9d54a9a3bcbebd46.jpg'); ; background-size: cover;">
+
+          <!-- Mask & flexbox options-->
+          <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+            <!-- Content -->
+            <div class="text-center white-text mx-5 wow fadeIn">
+              <h1 class="mb-4">
+                <strong></strong>
+              </h1>
+
+              <p class="mb-4 d-none d-md-block">
+                <strong>Edit Profile</strong>
+              </p>
+
+            </div>
+            <!-- Content -->
+
+          </div>
+          <!-- Mask & flexbox options-->
+
+        </div>
+      </div>
+      <!--/First slide-->
+
+
+  <!--Main layout-->
+  <main>
+
+    <div class="container">
+
+    <section>
+     <h2 class="my-5 h3 text-center">Edit Details</h2>
+
+    <hr class="my-5">
+      <form method="POST">
+        {% csrf_token %}
+        <center>
+        <div class="row">
+          <div class="col-sm">
+            <b>First Name</b>
+          </div>
+          
+          <div class="col-sm">
+            {{form.first_name}}
+          </div>
+        </div>
+      
+        <div class="row" style="margin-top: 1%;">
+          <div class="col-sm">
+            <b>Last Name</b>
+          </div>
+          
+          <div class="col-sm">
+            {{form.last_name}}
+          </div>
+        </div>
+
+        <div class="row" style="margin-top: 1%;">
+          <div class="col-sm">
+            <b>Username</b>
+          </div>
+          
+          <div class="col-sm">
+            {{form.username}}
+          </div>
+        </div>
+
+        <div class="row" style="margin-top: 1%;">
+          <div class="col-sm">
+            <b>Email</b>
+          </div>
+          
+          <div class="col-sm">
+            {{form.email}}
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+        </center>
+      </form>
+      <br>
+    </div>
+
+  </main>
+  <!--Main layout-->
+
+{% endblock content %}
