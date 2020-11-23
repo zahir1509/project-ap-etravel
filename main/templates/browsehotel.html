@@ -58,74 +58,115 @@
   <main>
 
     <div class="container">
-      <p>Form</p>
+      
         <!--Insert form here-->
-        <form class="needs-validation" novalidate>
-          <div class="form-row">
-            <div class="col-md-4 mb-3">
-              <label for="validationCustom01">First name</label>
-              <input type="text" class="form-control" id="validationCustom01" placeholder="First name" value="Mark" required>
-              <div class="valid-feedback">
-                Looks good!
-              </div>
-            </div>
-            <div class="col-md-4 mb-3">
-              <label for="validationCustom02">Last name</label>
-              <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" value="Otto" required>
-              <div class="valid-feedback">
-                Looks good!
-              </div>
-            </div>
-            <div class="col-md-4 mb-3">
-              <label for="validationCustomUsername">Username</label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="inputGroupPrepend">@</span>
-                </div>
-                <input type="text" class="form-control" id="validationCustomUsername" placeholder="Username" aria-describedby="inputGroupPrepend" required>
-                <div class="invalid-feedback">
-                  Please choose a username.
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="col-md-6 mb-3">
-              <label for="validationCustom03">City</label>
-              <input type="text" class="form-control" id="validationCustom03" placeholder="City" required>
-              <div class="invalid-feedback">
-                Please provide a valid city.
-              </div>
-            </div>
-            <div class="col-md-3 mb-3">
-              <label for="validationCustom04">State</label>
-              <input type="text" class="form-control" id="validationCustom04" placeholder="State" required>
-              <div class="invalid-feedback">
-                Please provide a valid state.
-              </div>
-            </div>
-            <div class="col-md-3 mb-3">
-              <label for="validationCustom05">Zip</label>
-              <input type="text" class="form-control" id="validationCustom05" placeholder="Zip" required>
-              <div class="invalid-feedback">
-                Please provide a valid zip.
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-              <label class="form-check-label" for="invalidCheck">
-                Agree to terms and conditions
-              </label>
-              <div class="invalid-feedback">
-                You must agree before submitting.
-              </div>
-            </div>
-          </div>
-          <button class="btn btn-primary" type="submit">Submit form</button>
-        </form>
         
+
+          <h3>Filter Journals</h3>
+          <form method="GET" action=".">
+            <div class="form-row">
+                <div class="form-group col-12">
+                    <div class="input-group">
+                        <input class="form-control py-2 border-right-0 border" type="search" name="hotelname" placeholder="hotelname..." />
+                        <span class="input-group-append">
+                            <div class="input-group-text bg-transparent">
+                                <i class="fa fa-search"></i>
+                            </div>
+                        </span>
+                    </div>
+                </div>        
+            </div>
+            <div class="form-row">
+                <div class="form-group col-12">
+                    <div class="input-group">
+                        <input class="form-control py-2 border-right-0 border" type="search" name="id_exact" placeholder="ID exact..." />
+                        <span class="input-group-append">
+                            <div class="input-group-text bg-transparent">
+                                <i class="fa fa-search"></i>
+                            </div>
+                        </span>
+                    </div>
+                </div>        
+            </div>
+            <div class="form-row">
+                <div class="form-group col-12">
+                    <div class="input-group">
+                        <input class="form-control py-2 border-right-0 border" type="search" name="cityname" placeholder="city..." />
+                        <span class="input-group-append">
+                            <div class="input-group-text bg-transparent">
+                                <i class="fa fa-search"></i>
+                            </div>
+                        </span>
+                    </div>
+                </div>        
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-2 col-lg-2">
+                <label for="viewCountMin">Minimum View Count</label>
+                <input type="number" min=0 class="form-control"  placeholder="0" name="price_min">
+              </div>
+              <div class="form-group col-md-2 col-lg-2">
+                <label for="viewCountMax">Maximum View Count</label>
+                <input type="number" min=0 class="form-control" placeholder="10000?" name="price_max">
+              </div>
+              <div class="form-group col-md-2 col-lg-2">
+                <label for="publishDateMin">Publish date minimum</label>
+                <input type="date" class="form-control" id="publishDateMin" name="price_minqq">
+              </div>
+              <div class="form-group col-md-2 col-lg-2">
+                <label for="publishDateMax">Publish date maximum</label>
+                <input type="date" class="form-control" id="publishDateMax" name="price_maxqq">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="category">Category</label>
+                <select id="category" class="form-control" name="category">
+                  <option selected>Choose...</option>
+                  {% for cat in categories %}
+                  <option value="{{ cat }}">{{ cat }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="reviewed" name="reviewed">
+                <label class="form-check-label" for="reviewed">
+                  Reviewed
+                </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="notReviewed" name="notReviewed">
+                <label class="form-check-label" for="notReviewed">
+                  Not reviewed
+                </label>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+          </form>
+
+
+
+          <div class="row">
+            <ul>
+              {% for hotel in queryset %}
+                <li>
+                  {{ hotel.hotel_name }}
+                  <span>City: {{ hotel.hotel_city}}</span>
+                  
+                </li>
+                <hr />
+              {% endfor %}
+            </ul>
+          </div>
+
+    
+
+
+
+
+
         <script>
         // Example starter JavaScript for disabling form submissions if there are invalid fields
         (function() {

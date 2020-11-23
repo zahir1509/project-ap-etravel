@@ -6,13 +6,33 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from .forms import *
+from .models import *
 # Create your views here.
 
 def homepage(request):
     return render(request, 'home.html')
 
-def browsehotel(request):
-    return render(request, 'browsehotel.html')
+def filterhotel(request):
+    qs = Hotel.objects.all()
+    hotelname_query = request.GET.get('hotelname')
+    cityname_query = request.GET.get('cityname')
+    price_min = request.GET.get('price_min')
+    price_max = request.GET.get('price_max')
+
+    if hotelname_query != '' and hotelname_query is not None: 
+        qs = qs.filter(hotel_name__icontains = hotelname_query)
+    if cityname_query != '' and cityname_query is not None: 
+        qs = qs.filter(hotel_city__icontains = cityname_query)
+    if price_min != '' and price_min is not None: 
+        qs = qs.filter(hotel_price__gte= price_min)
+    if price_max != '' and price_max is not None: 
+        qs = qs.filter(hotel_price__lt= price_max)
+    
+    context = {
+        'queryset': qs
+    }
+
+    return render(request, 'browsehotel.html', context)
 
 def accountpage(request):
     if request.user.is_authenticated:
