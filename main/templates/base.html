@@ -126,13 +126,27 @@
 <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
 <!-- Bootstrap core JavaScript -->
 <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <!-- Initializations -->
 <script type="text/javascript">
   // Animations initialization
   new WOW().init();
-
+</script>
+<script>
+  var mycities = [
+  "Delhi",
+  "Mumbai",
+  "Ahmedabad"
+  ];
+  
+  $('#form-autocomplete-1').autocomplete({
+  source: mycities
+  },{});
 </script>
 </body>
 
