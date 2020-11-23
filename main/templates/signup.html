@@ -52,39 +52,36 @@
                     {% csrf_token %}
 					<div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
 						<span class="label-input100">Username</span>
-						{{form.username}}
+						<input class="input100" type="text" name="username" placeholder="Enter username">
 						<span class="focus-input100"></span>
 					</div>
 
 
                     <div class="wrap-input100 m-b-26" >
 						<span class="label-input100">First Name</span>
-						{{form.first_name}}
+						<input class="input100" type="text" name="first_name" placeholder="Enter First Name">
 						<span class="focus-input100"></span>
                     </div>
 
                     
                     <div class="wrap-input100 m-b-26" >
 						<span class="label-input100">Last Name</span>
-						{{form.last_name}}
-						<span class="focus-input100"></span>
+						<input class="input100" type="text" name="last_name" placeholder="Enter Last Name">						<span class="focus-input100"></span>
                     </div>
 
                     <div class="wrap-input100 m-b-26" >
 						<span class="label-input100">Email</span>
-						{{form.email}}
-						<span class="focus-input100"></span>
+						<input class="input100" type="text" name="email" placeholder="Enter Email address">						<span class="focus-input100"></span>
                     </div>
                     
 					<div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
 						<span class="label-input100">Password</span>
-						{{form.password1}}
-						<span class="focus-input100"></span>
+						<input class="input100" type="password" name="password1" placeholder="Enter Password">						<span class="focus-input100"></span>
 					</div>
 
                     <div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
 						<span class="label-input100">Confirm Password</span>
-						{{form.password2}}
+						<input class="input100" type="password" name="password2" placeholder="Retype Password">						<span class="focus-input100"></span>
 						<span class="focus-input100"></span>
                     </div>
                     
