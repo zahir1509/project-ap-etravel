@@ -27,7 +27,11 @@ class Hotel(models.Model):
     hotel_restaurant = models.BooleanField(default=False)
     hotel_ac = models.BooleanField(default=True)
     hotel_pool = models.BooleanField(default=False)
-
+    hotel_spa = models.BooleanField(default=False)
+    hotel_giftshop = models.BooleanField(default=False)
+    hotel_wifi = models.BooleanField(default=True)
+    hotel_parking = models.BooleanField(default=False)
+    
     def __str__(self):
         return self.hotel_name
 

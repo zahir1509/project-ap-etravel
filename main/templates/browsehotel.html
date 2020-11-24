@@ -157,12 +157,16 @@
                         <i class="fas fa-building fa-2x cyan-text"></i>
                       </div>
                       <div class="col-10">
-                        <h5 class="feature-title">Additional Amenities</h5>
+                        <h5 class="feature-title">Facilities</h5>
                         <p class="grey-text">
                           <ul>
-                            <li class="grey-text">In-house Restaurant: {% if hotel.hotel_restaurant %} Yes {% else %} No {% endif %}</li>
-                            <li class="grey-text">A/C Rooms: {% if hotel.hotel_ac %} Yes {% else %} No {% endif %}</li>
-                            <li class="grey-text">Swimming Pool: {% if hotel.hotel_pool %} Yes {% else %} No {% endif %}</li>
+                            {% if hotel.hotel_restaurant %}<li class="grey-text">In-house Restaurant with complementary Breakfast</li>{% endif %}
+                            {% if hotel.hotel_spa %}<li class="grey-text">Spa</li>{% endif %}
+                            {% if hotel.hotel_giftshop %}<li class="grey-text">Gift-Shop</li>{% endif %}
+                            {% if hotel.hotel_wifi %}<li class="grey-text">Free Wi-fi</li>{% endif %}
+                            {% if hotel.hotel_parking %}<li class="grey-text">Car Parking Available</li>{% endif %}
+                            {% if hotel.hotel_ac %}<li class="grey-text">A/C Rooms</li>{% endif %}
+                            {% if hotel.hotel_pool %}<li class="grey-text">Swimming Pool</li>{% endif %}
                           </ul>
                         </p>
                       </div>
