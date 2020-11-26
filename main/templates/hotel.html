@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container" style="margin-top: 5%;">
+    <p>{{hotel.hotel_name}}</p>
+
+    <center>
+        <form method="POST" action="{% url 'bookhotel' %}">
+         {% csrf_token %}
+         <input type="hidden" name="hotel" value="{{hotel.pk}}">
+         <label for="numpeople">People</label>
+        <input type="number" min=1 class="form-control" placeholder="people" name="num_people">
+        <label for="roomnos">Rooms</label>
+        <input type="number" min=1 class="form-control" placeholder="Rooms" name="rooms">
+         <label for="checkin">Check In:</label>
+         <input type="date" class="form-control" id="check_in" name="check_in">
+         <label for="checkout">Check Out</label>
+         <input type="date" class="form-control" id="check_out" name="check_out">
+          
+          <button class="btn btn-info btn-sm">Book Now</button>
+       </form>
+       </center>
+
+    
+
+
+</div>
+{% endblock content %}

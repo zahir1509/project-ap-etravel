@@ -18,7 +18,7 @@ class Hotel(models.Model):
     #hotel_city = models.ForeignKey(Location, on_delete=models.CASCADE)
 
     hotel_address = models.CharField(max_length=40, default="")
-    hotel_price = models.IntegerField()
+    hotel_price = models.FloatField(default=0.0)
 
     #hotel_img = models.ImageField()
 
@@ -50,7 +50,7 @@ class Reservation(models.Model):
     check_out = models.DateField(null=True)
 
 
-    cost = models.IntegerField(default=0)
+    cost = models.FloatField(default=0.0)
 
     def __str__(self):
         return self.reservation_name

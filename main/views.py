@@ -34,20 +34,32 @@ def filterhotel(request):
 
     return render(request, 'browsehotel.html', context)
 
+def hotelpage(request, hotel_id):
+    if request.method == 'GET':
+        hotel = get_object_or_404(Hotel, pk=hotel_id)
+
+        context = {
+            'hotel':hotel
+        }
+        return render(request, 'hotel.html', context)
 def bookhotel(request):
     if request.method == "POST":
         hotel_id = request.POST.get('hotel', '')
         check_in = request.POST.get('check_in')
         check_out = request.POST.get('check_out')
+        num_people = request.POST.get('num_people')
+        rooms = request.POST.get('rooms')
 
     hotel = get_object_or_404(Hotel, pk = hotel_id)
 
     booknow = Reservation (
         user = request.user,
         reservation_name = hotel.hotel_name + " | " + request.user.username,
-        cost = hotel.hotel_price,
         check_in = check_in,
-        check_out = check_out
+        check_out = check_out,
+        num_people = num_people,
+        rooms = rooms,
+        cost = hotel.hotel_price * float(rooms)
     )
     booknow.save()
 

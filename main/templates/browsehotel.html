@@ -114,7 +114,7 @@
 
               
 
-                <h3 class="h3 text-center mb-5">{{hotel.hotel_name}}</h3>
+                <h3 class="h3 text-center mb-5"><a href='/hotel/{{hotel.pk}}'>{{hotel.hotel_name}}</a></h3>
         
                 <!--Grid row-->
                 <div class="row wow fadeIn">
@@ -192,18 +192,7 @@
         
                 </div>
                 <!--/Grid row-->
-                <center>
-                   <form method="POST" action="{% url 'bookhotel' %}">
-                    {% csrf_token %}
-                    <input type="hidden" name="hotel" value="{{hotel.pk}}">
-                    <label for="checkin">Check In:</label>
-                    <input type="date" class="form-control" id="check_in" name="check_in">
-                    <label for="checkout">Check Out</label>
-                    <input type="date" class="form-control" id="check_out" name="check_out">
-                     
-                     <button class="btn btn-info btn-sm">Book Now</button>
-                  </form>
-                  </center>
+                
               <hr class="my-5">
               {% empty %}
               <center><h5 style="margin-bottom:4%; ">Sorry! No hotels match those preferences.</h5></center>
