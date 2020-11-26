@@ -42,6 +42,7 @@ def hotelpage(request, hotel_id):
             'hotel':hotel
         }
         return render(request, 'hotel.html', context)
+        
 def bookhotel(request):
     if request.method == "POST":
         hotel_id = request.POST.get('hotel', '')
