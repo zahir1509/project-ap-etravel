@@ -112,36 +112,36 @@
           <section>
               {% for hotel in queryset %}
 
-              
+              <!-- Card -->
+<div class="card card-cascade wider reverse">
 
-                <h3 class="h3 text-center mb-5">{{hotel.hotel_name}}, {{hotel.hotel_city}}</h3>
-        
-                <!--Grid row-->
-                <div class="row wow fadeIn">
-        
-          
-                  <!--/Grid column-->
-        
-                  <!--Grid column-->
-              
-        
-                  <center>             
-             
-     
-                        <img src="https://mdbootstrap.com/img/Marketing/mdb-press-pack/mdb-main.jpg" class="img-fluid mx-auto rounded d-block" style="max-width: 60%; height:auto" alt="">
-                   
-                          <p class="h5 text-center mt-4" style="margin-top: 1%; margin-bottom:1%">₹{{hotel.hotel_price}}/night</p>
-            </center>
-         
-                  <!--/Grid column-->
-        
-                </div>
-                <!--/Grid row--><center>
-                  <a style="color: inherit;" href='/hotel/{{hotel.pk}}'>
-                    <button class="btn btn-primary btn-sm">View / Book</button>
-                  </a>
-                </button>
-              </center>
+  <!-- Card image -->
+  <div class="view view-cascade overlay">
+    <img class="card-img-top img-fluid mx-auto rounded d-block" src="https://mdbootstrap.com/img/Marketing/mdb-press-pack/mdb-main.jpg"
+      alt="Card image cap">
+    <a href='/hotel/{{hotel.pk}}'>
+      <div class="mask rgba-white-slight"></div>
+    </a>
+  </div>
+
+  <!-- Card content -->
+  <div class="card-body card-body-cascade text-center">
+
+    <!-- Title -->
+    <h4 class="card-title"><strong>{{hotel.hotel_name}}</strong></h4>
+    <!-- Subtitle -->
+    <h6 class="font-weight-bold indigo-text py-2">{{hotel.hotel_city}}</h6>
+    <!-- Text -->
+    <p class="card-text">₹{{hotel.hotel_price}}/night
+    </p>
+
+    
+
+  </div>
+
+</div>
+<!-- Card -->
+
               <hr class="my-5">
               {% empty %}
               <center><h5 style="margin-bottom:4%; ">Sorry! No hotels match those preferences.</h5></center>
