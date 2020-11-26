@@ -1,12 +1,41 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container" style="margin-top: 5%;">
-    <p>Thanks for booking {{hotel.hotel_name}}</p>
 
-    
+<div style="background-image: url('https://media.istockphoto.com/vectors/dark-blue-gradient-background-modern-look-vector-id1174818917?k=6&m=1174818917&s=170667a&w=0&h=_lsiNqZfUBgGOhvJnLl7t6MW7ZWx8YkGhsk7hftOiG4='); ; background-size: cover;">
+
+    <!-- Mask & flexbox options-->
+    <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+  
+      <!-- Content -->
+      <div class="text-center white-text mx-5 wow fadeIn">
+        <h1 class="mb-4">
+          <strong></strong>
+        </h1>
+  
+        <p class="mb-4 d-none d-md-block">
+          <strong>Booking Confirmed</strong>
+        </p>
+  
+      </div>
+      <!-- Content -->
+  
+    </div>
+    <!-- Mask & flexbox options-->
+  
+  </div>
 
 
-</div>
+  <main>
+    <center>
+        <i class="fas fa-check-circle fa-3x green-text" style="margin-top: 4%;"></i>
+    <h4 style="margin-top: 1%;"> Thank you for choosing Raahi. Your booking for {{hotel.hotel_name}} has been confirmed. </h4>
+    <h5 style="margin-bottom: 4%;">Please check your profile for details.</h5>
+    </center>
+
+
+
+
+  </main>
 {% endblock content %}
 
