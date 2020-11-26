@@ -55,6 +55,7 @@ def bookhotel(request):
     booknow = Reservation (
         user = request.user,
         reservation_name = hotel.hotel_name + " | " + request.user.username,
+        reference_name = hotel.hotel_name + ", " + hotel.hotel_city,
         check_in = check_in,
         check_out = check_out,
         num_people = num_people,
@@ -67,7 +68,12 @@ def bookhotel(request):
 
 def accountpage(request):
     if request.user.is_authenticated:
-        return render(request, 'myaccount.html')
+        reservation_list = Reservation.objects.filter(user = request.user)
+        context = {
+            'user': request.user,
+            'reservation_list' : reservation_list
+        }
+        return render(request, 'myaccount.html', context)
     else:
         return redirect('login')
 

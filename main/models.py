@@ -43,6 +43,7 @@ class HotelRating(models.Model):
 class Reservation(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     reservation_name = models.CharField(max_length=40, default="")
+    reference_name = models.CharField(max_length=40, default="")
     timestamp = models.DateTimeField(default=datetime.now())
     num_people = models.IntegerField(default=1)
     rooms = models.IntegerField(default=1)

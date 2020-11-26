@@ -115,9 +115,29 @@
       <!--Section: Main info-->
       <section class="mt-5 wow fadeIn">
 
-        <h2 class="my-5 h3 text-center">Reservations:</h2>
+        <h2 class="my-5 h3 text-center">Reservations</h2>
+
+        {% if reservation_list %}
+        
+        {% for reservation in reservation_list %}
+
+       Ref: {{reservation.reference_name}} <br>
+       Booking Date and Time: {{reservation.timestamp}}  <br>
+       Check In: {{reservation.check_in}}  <br>
+       Check Out: {{reservation.check_out}}  <br>
+       Number of People: {{reservation.num_people}}  <br>
+        Rooms: {{reservation.rooms}}  <br>
+        Cost: {{reservation.cost}}
+
 
         
+        {% endfor %}
+
+        {% else %}
+
+        You have not made any reservations yet!
+
+        {% endif %}
 
       </section>
       <!--Section: More-->
