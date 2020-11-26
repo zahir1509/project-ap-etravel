@@ -46,6 +46,9 @@ class Reservation(models.Model):
     timestamp = models.DateTimeField(default=datetime.now())
     num_people = models.IntegerField(default=1)
     rooms = models.IntegerField(default=1)
+    check_in = models.DateField(null=True)
+    check_out = models.DateField(null=True)
+
 
     cost = models.IntegerField(default=0)
 

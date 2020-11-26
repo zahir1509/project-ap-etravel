@@ -37,6 +37,8 @@ def filterhotel(request):
 def bookhotel(request):
     if request.method == "POST":
         hotel_id = request.POST.get('hotel', '')
+        check_in = request.POST.get('check_in')
+        check_out = request.POST.get('check_out')
 
     hotel = get_object_or_404(Hotel, pk = hotel_id)
 
@@ -44,6 +46,8 @@ def bookhotel(request):
         user = request.user,
         reservation_name = hotel.hotel_name + " | " + request.user.username,
         cost = hotel.hotel_price,
+        check_in = check_in,
+        check_out = check_out
     )
     booknow.save()
 
