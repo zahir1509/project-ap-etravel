@@ -49,6 +49,8 @@ class Reservation(models.Model):
 
     cost = models.IntegerField(default=0)
 
+    def __str__(self):
+        return self.reservation_name
 
 
 

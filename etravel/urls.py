@@ -27,8 +27,8 @@ urlpatterns = [
     path('browsehotel/', views.filterhotel, name = 'browsehotel'),
     path('myaccount/', views.accountpage, name='myaccount'),
     path('editprofile/', views.edit_profile, name='editprofile'),
-    path('change-password/', views.change_password, name='editpassword' )
-
+    path('change-password/', views.change_password, name='editpassword'),
+    path('hotel_booking/', views.bookhotel, name='bookhotel'),
 
 
 

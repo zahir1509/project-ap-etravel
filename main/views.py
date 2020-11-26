@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.http import Http404
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
@@ -33,6 +33,21 @@ def filterhotel(request):
     }
 
     return render(request, 'browsehotel.html', context)
+
+def bookhotel(request):
+    if request.method == "POST":
+        hotel_id = request.POST.get('hotel', '')
+
+    hotel = get_object_or_404(Hotel, pk = hotel_id)
+
+    booknow = Reservation (
+        user = request.user,
+        reservation_name = hotel.hotel_name + " | " + request.user.username,
+        cost = hotel.hotel_price,
+    )
+    booknow.save()
+
+    return render(request, 'bookingpage.html', {'hotel':hotel, 'booking':booknow})
 
 def accountpage(request):
     if request.user.is_authenticated:

@@ -193,7 +193,12 @@
                 </div>
                 <!--/Grid row-->
                 <center>
-                  <button type="submit" class="btn btn-info btn-sm">Book Now</button></center>
+                   <form method="POST" action="{% url 'bookhotel' %}">
+                    <input type="hidden" name="hotel" value="{{hotel.pk}}">
+                     {% csrf_token %}
+                     <button class="btn btn-info btn-sm">Book Now</button>
+                  </form>
+                  </center>
               <hr class="my-5">
               {% empty %}
               <center><h5 style="margin-bottom:4%; ">Sorry! No hotels match those preferences.</h5></center>
