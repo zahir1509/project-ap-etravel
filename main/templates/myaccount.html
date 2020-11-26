@@ -45,7 +45,7 @@
           {{message}}
         </div>
           {% endfor %}
-        <h2 class="my-5 h3 text-center">User Details</h2>
+        <h2 class="my-5 h4 text-center">User Details</h2>
         
           <div class="row">
             <div class="col-sm">
@@ -115,27 +115,54 @@
       <!--Section: Main info-->
       <section class="mt-5 wow fadeIn">
 
-        <h2 class="my-5 h3 text-center">Reservations</h2>
+        <h3 class="my-5 h4 text-center">Reservations</h3>
 
         {% if reservation_list %}
         
         {% for reservation in reservation_list %}
 
-       Ref: {{reservation.reference_name}} <br>
-       Booking Date and Time: {{reservation.timestamp}}  <br>
-       Check In: {{reservation.check_in}}  <br>
-       Check Out: {{reservation.check_out}}  <br>
-       Number of People: {{reservation.num_people}}  <br>
-        Rooms: {{reservation.rooms}}  <br>
-        Cost: {{reservation.cost}}
-
-
         
+          <div class="card mx-auto text-center" style="width: 80%; margin-bottom: 5%">
+            <div class="card-header text-center">
+              <h5>{{reservation.reference_name}}</h5>
+            </div>
+            
+            <div class="row">
+              <div class="col mt-5 mb-5">
+                <strong>Time of Booking</strong> <br>
+                {{reservation.timestamp}} <br>
+              </div>
+              <div class="col mt-5 mb-5">
+                <strong>Check In</strong> <br>
+                {{reservation.check_in}} <br>
+              </div>
+              <div class="col mt-5 mb-5">
+                <strong>Check Out</strong> <br>
+                {{reservation.check_out}} <br>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col mt-5 mb-5">
+                <strong>Number of People</strong> <br>
+                {{reservation.num_people}} <br>
+              </div>
+              <div class="col mt-5 mb-5">
+                <strong>Number of Rooms</strong> <br>
+                {{reservation.rooms}} <br>
+              </div>
+              <div class="col mt-5 mb-5">
+                <strong>Total Cost</strong> <br>
+                {{reservation.cost}} <br>
+              </div>
+            </div>
+
+          </div>
+
         {% endfor %}
 
         {% else %}
 
-        You have not made any reservations yet!
+        <center><h5 style="margin-bottom: 6%;">You have not made any reservations yet!</h5></center>
 
         {% endif %}
 

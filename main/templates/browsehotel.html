@@ -112,33 +112,33 @@
           <section>
               {% for hotel in queryset %}
 
-<!-- Card -->
-<div class="card mx-auto" style="max-width: 60%; height:auto">
+                <!-- Card -->
+                <div class="card mx-auto" style="max-width: 60%; height:auto">
 
-  <!-- Card image -->
-  <div class="view overlay">
-    <img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"
-      alt="Card image cap">
-    <a href="/hotel/{{hotel.pk}}">
-      <div class="mask rgba-white-slight"></div>
-    </a>
-  </div>
+                  <!-- Card image -->
+                  <div class="view overlay">
+                    <img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"
+                      alt="Card image cap">
+                    <a href="/hotel/{{hotel.pk}}">
+                      <div class="mask rgba-white-slight"></div>
+                    </a>
+                  </div>
 
-  <!-- Card content -->
-  <div class="card-body text-center">
+                  <!-- Card content -->
+                  <div class="card-body text-center">
 
-   <!-- Title -->
-   <h4 class="card-title"><strong>{{hotel.hotel_name}}</strong></h4>
-   <!-- Subtitle -->
-   <h6 class="font-weight-bold indigo-text py-2">{{hotel.hotel_city}}</h6>
-   <!-- Text -->
-   <p class="card-text">₹{{hotel.hotel_price}}/night
-   </p>
+                  <!-- Title -->
+                  <h4 class="card-title"><strong>{{hotel.hotel_name}}</strong></h4>
+                  <!-- Subtitle -->
+                  <h6 class="font-weight-bold indigo-text py-2">{{hotel.hotel_city}}</h6>
+                  <!-- Text -->
+                  <p class="card-text">₹{{hotel.hotel_price}}/night
+                  </p>
 
-  </div>
+                  </div>
 
-</div>
-<!-- Card -->
+                </div>
+                <!-- Card -->
 
 
               <hr class="my-5">

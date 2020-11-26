@@ -60,7 +60,8 @@ def bookhotel(request):
         check_out = check_out,
         num_people = num_people,
         rooms = rooms,
-        cost = hotel.hotel_price * float(rooms)
+        cost = hotel.hotel_price * float(rooms),
+        timestamp = datetime.now()
     )
     booknow.save()
 
