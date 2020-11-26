@@ -108,7 +108,7 @@
 
       <hr class="my-5">
     <center>
-
+        {% if request.user.is_authenticated %}
         <h5 style="margin-top: 2%;">Booking Details</h5>
 
         <form method="POST" action="{% url 'bookhotel' %}" style="margin-top: 4%;">
@@ -135,6 +135,10 @@
 
           <button class="btn btn-info btn-md" style="margin-top: 3%; margin-bottom:2%">Book Now</button>
        </form>
+
+       {% else %}
+       <h5 style="margin-top: 2%; margin-bottom: 5%">Please <a href="/login/">login</a> to book hotels.</h5>
+       {% endif %}
        </center>
 
     
