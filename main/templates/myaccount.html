@@ -156,6 +156,7 @@
               </div>
             </div>
 
+            
             <form method="POST" action="{% url 'cancelbooking' %}">
               {% csrf_token %}
               <input type="hidden" name="reservation" value="{{reservation.pk}}">
