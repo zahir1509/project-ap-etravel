@@ -29,7 +29,8 @@ urlpatterns = [
     path('editprofile/', views.edit_profile, name='editprofile'),
     path('change-password/', views.change_password, name='editpassword'),
     path('hotel_booking/', views.bookhotel, name='bookhotel'),
-    path('hotel/<int:hotel_id>', views.hotelpage, name='hotelpage')
+    path('hotel/<int:hotel_id>', views.hotelpage, name='hotelpage'),
+    path('cancelbooking/', views.cancelbooking, name='cancelbooking')
 
 
 

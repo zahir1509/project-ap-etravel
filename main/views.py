@@ -68,6 +68,20 @@ def bookhotel(request):
 
     return render(request, 'bookingpage.html', {'hotel':hotel, 'booking':booknow})
 
+def cancelbooking(request):
+    if request.method == 'POST':
+        reservation_id = request.POST.get('reservation', '')
+    
+    reservation = get_object_or_404(Reservation, pk = reservation_id)
+
+    booked = Reservation.objects.filter(
+        user = request.user,
+        pk = reservation_id
+    )
+    booked.delete()
+    messages.info(request, 'Your reservation was cancelled.')
+    return redirect('myaccount')
+
 def accountpage(request):
     if request.user.is_authenticated:
         reservation_list = Reservation.objects.filter(user = request.user)

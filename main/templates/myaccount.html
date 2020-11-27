@@ -156,11 +156,11 @@
               </div>
             </div>
 
-
-            <a href="#" class="card-link" style="color: red; margin-bottom:4%">
-              <button class="btn btn-sm"><strong>Cancel this reservation</strong></button>
-            </a>
-
+            <form method="POST" action="{% url 'cancelbooking' %}">
+              {% csrf_token %}
+              <input type="hidden" name="reservation" value="{{reservation.pk}}">
+            <button class="btn btn-sm btn-danger" type="submit" style="margin-bottom: 5%;" ><strong>Cancel this reservation</strong></button>
+          </form>
           </div>
 
         {% endfor %}
