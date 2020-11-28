@@ -143,6 +143,8 @@
        <hr class="my-5">
 
        <h5 style="margin-top: 2%;"><strong>Reviews for {{hotel.hotel_name}}</strong></h5>
+       
+       {% if reviews %}
 
        <p><strong>{{ reviews_avg }}</strong> from <strong>{{ reviews_count }}</strong> reviews</p>
 
@@ -150,14 +152,24 @@
        
        <div class="card mb-5 mt-5" style="width: 80%;">
         <div class="card-body">
-          <h5 class="card-title">Rated: {{review.rate}}/5</h5>
+          <h5 class="card-title">Review by: {{review.user.first_name}}</h5>
+          <p class="card-subtitle mb-2 mt-4">Rating: {{review.rate}} / 5</p>
           <p class="card-subtitle mb-2 mt-4">{{review.text}}</p>
-          <p class="card-text mt-5">Posted by {{review.user.first_name}} on {{review.date}}</p>
+          <p class="card-text mt-5">Posted on {{review.date}}</p>
         </div>
       </div>
 
+
+
        {% endfor %}
 
+
+       
+      {% else %}
+
+      <h5 style="margin-top: 2%; margin-bottom: 5%">Be the first one to write a review!</h5>
+
+      {% endif %}
 
        <hr class="my-5">
       
