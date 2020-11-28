@@ -1,8 +1,6 @@
-# Raahi - An Hotel Booking e-Travel Web Platform
+# Raahi - A Hotel Booking e-Travel Web Platform
 
 Project towards the fulfillment of credits for Advanced Programming [CS-1202] | Monsoon 2020 | Ashoka University
-
-***
 
 **IMPORTANT**
 
@@ -23,3 +21,19 @@ While installing, make sure to install it for all users, install all components,
 ***
 
 **Features:**
+- Authentication - Signup, Login, Logout
+- View and edit User Profile
+- Change Password
+- View all available hotels on the **Browse Hotels** page
+- Search for a hotel by its name, or by city
+- Filter Hotels by Price floor and ceiling
+- View additional details for the hotel
+- See ratings and reviews by other users for the hotel
+- Leave a rating and a review for a hotel
+- Book hotel with Check In and Check Out Date, number of people and number of rooms (Price = Rooms x Cost per room)
+- View all reservations made in the User Profile page
+- Cancel Reservations made in the User Profile page
+
+**Known bugs:**
+
+**Branch** `master` **is the latest version**
