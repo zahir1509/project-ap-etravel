@@ -38,7 +38,7 @@ While installing, make sure to install it for all users, install all components,
 - Search for a hotel by its name, or by city
 - Filter Hotels by Price floor and ceiling
 - View additional details for the hotel
-- See ratings and reviews by other users for the hotel
+- See the average rating, ratings and reviews by other users for the hotel
 - Leave a rating and a review for a hotel
 - Book hotel with Check In and Check Out Date, number of people and number of rooms (Price = Rooms x Cost per room)
 - View all reservations made in the User Profile page
