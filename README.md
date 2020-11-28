@@ -27,6 +27,10 @@ While installing, make sure to install it for all users, install all components,
 ***
 
 **Features:**
+- **ALL ACTIVITIES CAN BE TRACKED FROM THE DJANGO ADMIN PANEL at** `http://127.0.0.1:8000/admin/`
+- **For ADMIN access, Create your own superuser or login to admin account with Username:** `zahir` **and Password:** `zahir` 
+- **This project was created with Django and its inbuilt ORM. Django ORM uses SQLite by default. Database stored in** `db.sqlite3` **file in root directory**
+- **Modify the database from Django Admin. Add/Remove Hotels, Users, Reviews etc.**
 - Authentication - Signup, Login, Logout
 - View and edit User Profile
 - Change Password
@@ -49,3 +53,8 @@ While installing, make sure to install it for all users, install all components,
 
 ***
 
+**ACKNOWLEDGEMENTS | CITATIONS | OTHER RESOURCES USED**
+
+- _Template by MDBootstrap procured under the MIT License - free for personal and commercial use._ (https://github.com/mdbootstrap/Bootstrap-4-templates/tree/master/full-page-image-carousel)
+- _Authentication system inspired by Dennis Ivy's tutorial, available at_ https://youtu.be/tUqUdu0Sjyc
+- _Review system inspired by Lara Code's tutorial on making an IMDb clone, available at_ https://youtu.be/tJXt0HW0Id8 (Code available at https://github.com/byronlara5/django_imdb_youtube)
