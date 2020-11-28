@@ -30,7 +30,7 @@
 
 <main>
 <div class="container">
-    <center><h4 style="margin-top: 2%; margin-bottom: 4%">{{hotel.hotel_name}}</h4></center>
+    <center><h3 style="margin-top: 2%; margin-bottom: 4%">{{hotel.hotel_name}}</h3></center>
 
     <div class="row wow fadeIn">
         
@@ -109,7 +109,7 @@
       <hr class="my-5">
     <center>
         {% if request.user.is_authenticated %}
-        <h5 style="margin-top: 2%;">Booking Details</h5>
+        <h5 style="margin-top: 2%;"><strong>Booking Details</strong></h5>
 
         <form method="POST" action="{% url 'bookhotel' %}" style="margin-top: 4%;">
          {% csrf_token %}
@@ -142,33 +142,48 @@
       
        <hr class="my-5">
 
-       <h5 style="margin-top: 2%;">Reviews</h5>
+       <h5 style="margin-top: 2%;"><strong>Reviews for {{hotel.hotel_name}}</strong></h5>
 
-       <p>{{ reviews_avg }}</p>
+       <p><strong>{{ reviews_avg }} from {{ reviews_count }} reviews </strong></p>
 
        {% for review in reviews %}
-
-       {{review.user.username}}
-       {{review.text}}
-       {{review.rate}}
+       
+       <div class="card mb-5 mt-5" style="width: 80%;">
+        <div class="card-body">
+          <h5 class="card-title">Rated: {{review.rate}}/5</h5>
+          <h6 class="card-subtitle mb-2 mt-4">{{review.text}}</h6>
+          <p class="card-text mt-5">Posted by {{review.user.first_name}} on {{review.date}}</p>
+        </div>
+      </div>
 
        {% endfor %}
 
 
        <hr class="my-5">
+      
+       <h5 style="margin-top: 2%; margin-bottom:2%"><strong>Write a Review</strong></h5>
 
-       <form method="post" action="" role="rateform" class="col s12">
+      {% if request.user.is_authenticated %}
+
+       <form method="post" action="" id="rate_form" name="rate_form" role="rate_form" style="width: 80%;">
         {% csrf_token %}
-       <div class="input-field col s12">
+       <div class="form-group" >
+         <label for="Rating">Rating:</label>
           {{ rate_form.rate }}
       </div>
-      <div class="input-field col s12">
-          {{ rate_form.text }}
-        <label for="textarea1">Opinion</label>
+      <div class="form-group">
+      <label for="review">Review:</label><br>
+      <textarea class="form-control" id="text" name="text" placeholder="How was your experience at {{hotel.hotel_name}}?"></textarea>
       </div>
 
-      <button type="submit" name="action" class="waves-effect waves-light btn"><i class="material-icons left">star</i>Rate</button>
+      <button type="submit" name="action" class="btn btn-md btn-secondary">Submit</button>
     </form>
+
+    {% else %}
+
+    <h5 style="margin-top: 2%; margin-bottom: 5%">Please <a href="/login/">login</a> to write a review.</h5>
+
+    {% endif %}
       </center>
 </div>
 
