@@ -36,19 +36,37 @@ def filterhotel(request):
     return render(request, 'browsehotel.html', context)
 
 def hotelpage(request, hotel_id):
-    if request.method == 'GET':
-        hotel = get_object_or_404(Hotel, pk=hotel_id)
-        reviews = Review.objects.filter(hotel=hotel)
-        reviews_avg = reviews.aggregate(Average_Rating = Avg('rate'))
-        reviews_count = reviews.count()
+    hotel = get_object_or_404(Hotel, pk=hotel_id)
+    reviews = Review.objects.filter(hotel=hotel)
+    reviews_avg = reviews.aggregate(Average_Rating = Avg('rate'))
+    reviews_count = reviews.count()
 
-        context = {
-            'hotel':hotel,
-            'reviews':reviews,
-            'reviews_avg':reviews_avg,
-            'reviews_count':reviews_count
-        }
-        return render(request, 'hotel.html', context)
+    
+    if request.method == 'POST':
+        rate_form = Rateform(request.POST)
+        user = request.user
+
+        if rate_form.is_valid():
+            rate = rate_form.save(commit=False)
+            rate.user = user
+            rate.hotel = hotel
+
+            rate_form.save()
+            return redirect('hotelpage', hotel_id)
+
+    else:
+            rate_form = Rateform()
+
+    context = {
+        'hotel':hotel,
+        'reviews':reviews,
+        'reviews_avg':reviews_avg,
+        'reviews_count':reviews_count,
+        'rate_form':rate_form
+    }
+    return render(request, 'hotel.html', context)
+
+
 
 def bookhotel(request):
     if request.method == "POST":
