@@ -5,6 +5,7 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm, Password
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
+from django.urls import reverse, reverse_lazy
 from .forms import *
 from .models import *
 # Create your views here.
@@ -37,9 +38,15 @@ def filterhotel(request):
 def hotelpage(request, hotel_id):
     if request.method == 'GET':
         hotel = get_object_or_404(Hotel, pk=hotel_id)
+        reviews = Review.objects.filter(hotel=hotel)
+        reviews_avg = reviews.aggregate(Average_Rating = Avg('rate'))
+        reviews_count = reviews.count()
 
         context = {
-            'hotel':hotel
+            'hotel':hotel,
+            'reviews':reviews,
+            'reviews_avg':reviews_avg,
+            'reviews_count':reviews_count
         }
         return render(request, 'hotel.html', context)
 
@@ -170,3 +177,4 @@ def change_password(request):
 
         args = {'form':form}
         return render(request, 'editpassword.html', args)
+

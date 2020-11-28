@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from datetime import datetime, date
+from django.db.models import Avg
+
 # Create your models here.
 
 class Location(models.Model):
@@ -56,5 +58,21 @@ class Reservation(models.Model):
     def __str__(self):
         return self.reservation_name
 
+RATE_CHOICES = [
+    (1, '1 - Trash'),
+    (2, '2 - Ok'),
+    (3, '3- Average'),
+    (4, '4 - Good'),
+    (5, '5 - Perfect')
+]
 
+class Review(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE, null=True)
+    date = models.DateTimeField(auto_now_add=True)
+    text = models.TextField(max_length =1000, blank= True)
+    rate = models.PositiveSmallIntegerField(choices = RATE_CHOICES)
+
+    def __str__(self):
+        return self.user.username
 

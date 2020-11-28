@@ -139,11 +139,22 @@
        {% else %}
        <h5 style="margin-top: 2%; margin-bottom: 5%">Please <a href="/login/">login</a> to book hotels.</h5>
        {% endif %}
-       </center>
+      
+       <hr class="my-5">
 
-    
+       <h5 style="margin-top: 2%;">Reviews</h5>
 
+       <p>{{ reviews_avg }}</p>
 
+       {% for review in reviews %}
+
+       {{review.user.username}}
+       {{review.text}}
+       {{review.rate}}
+
+       {% endfor %}
+
+      </center>
 </div>
 
 </main>

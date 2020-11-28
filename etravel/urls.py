@@ -30,7 +30,7 @@ urlpatterns = [
     path('change-password/', views.change_password, name='editpassword'),
     path('hotel_booking/', views.bookhotel, name='bookhotel'),
     path('hotel/<int:hotel_id>', views.hotelpage, name='hotelpage'),
-    path('cancelbooking/', views.cancelbooking, name='cancelbooking')
+    path('cancelbooking/', views.cancelbooking, name='cancelbooking'),
 
 
 
