@@ -144,14 +144,14 @@
 
        <h5 style="margin-top: 2%;"><strong>Reviews for {{hotel.hotel_name}}</strong></h5>
 
-       <p><strong>{{ reviews_avg }} from {{ reviews_count }} reviews </strong></p>
+       <p><strong>{{ reviews_avg }}</strong> from <strong>{{ reviews_count }}</strong> reviews</p>
 
        {% for review in reviews %}
        
        <div class="card mb-5 mt-5" style="width: 80%;">
         <div class="card-body">
           <h5 class="card-title">Rated: {{review.rate}}/5</h5>
-          <h6 class="card-subtitle mb-2 mt-4">{{review.text}}</h6>
+          <p class="card-subtitle mb-2 mt-4">{{review.text}}</p>
           <p class="card-text mt-5">Posted by {{review.user.first_name}} on {{review.date}}</p>
         </div>
       </div>
