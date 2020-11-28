@@ -61,7 +61,7 @@ class Reservation(models.Model):
 RATE_CHOICES = [
     (1, '1 - Trash'),
     (2, '2 - Ok'),
-    (3, '3- Average'),
+    (3, '3 - Average'),
     (4, '4 - Good'),
     (5, '5 - Perfect')
 ]
