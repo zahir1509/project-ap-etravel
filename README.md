@@ -48,8 +48,7 @@ While installing, make sure to install it for all users, install all components,
 
 **Known bugs:**
 
-- Bug 1
-- Bug 2
+- Average Rating on Hotel Page shows up at {'Average_Rating' : 3.0} instead of just returning the value 3.0
 
 ***
 
