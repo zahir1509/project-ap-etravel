@@ -22,7 +22,7 @@ class Hotel(models.Model):
     hotel_address = models.CharField(max_length=100, default="")
     hotel_price = models.FloatField(default=0.0)
 
-    #hotel_img = models.ImageField()
+    hotel_img = models.ImageField(blank=True, default="")
 
     hotel_star = models.IntegerField()
 
