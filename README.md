@@ -57,4 +57,5 @@ While installing, make sure to install it for all users, install all components,
 
 - _Template by MDBootstrap procured under the MIT License - free for personal and commercial use._ (https://github.com/mdbootstrap/Bootstrap-4-templates/tree/master/full-page-image-carousel)
 - _Authentication system inspired by Dennis Ivy's tutorial, available at_ https://youtu.be/tUqUdu0Sjyc
+- _Filtering system inspired by JustDjango's tutorial on building filtering forms, available at_ https://youtu.be/GtwK0Hj6jU8
 - _Review system inspired by Lara Code's tutorial on making an IMDb clone, available at_ https://youtu.be/tJXt0HW0Id8 (Code available at https://github.com/byronlara5/django_imdb_youtube)
