@@ -13,12 +13,12 @@ from .models import *
 def homepage(request):
     return render(request, 'home.html')
 
-def filterhotel(request):
+def filterhotel(request): #Browse Hotels
     qs = Hotel.objects.all()
-    hotelname_query = request.GET.get('hotelname')
-    cityname_query = request.GET.get('cityname')
-    price_min = request.GET.get('price_min')
-    price_max = request.GET.get('price_max')
+    hotelname_query = request.GET.get('hotelname') #filter by name
+    cityname_query = request.GET.get('cityname') #city
+    price_min = request.GET.get('price_min') #min price
+    price_max = request.GET.get('price_max') #max price
 
     if hotelname_query != '' and hotelname_query is not None: 
         qs = qs.filter(hotel_name__icontains = hotelname_query)
@@ -35,14 +35,14 @@ def filterhotel(request):
 
     return render(request, 'browsehotel.html', context)
 
-def hotelpage(request, hotel_id):
-    hotel = get_object_or_404(Hotel, pk=hotel_id)
-    reviews = Review.objects.filter(hotel=hotel)
-    reviews_avg = reviews.aggregate(Average_Rating = Avg('rate'))
-    reviews_count = reviews.count()
+def hotelpage(request, hotel_id): #hotel details page
+    hotel = get_object_or_404(Hotel, pk=hotel_id) #get hotel by id as primary key
+    reviews = Review.objects.filter(hotel=hotel) #get reviews to display
+    reviews_avg = reviews.aggregate(Average_Rating = Avg('rate')) #get avg of ratings
+    reviews_count = reviews.count() #number of reviews/ratings
 
     
-    if request.method == 'POST':
+    if request.method == 'POST': #review/rating form
         rate_form = Rateform(request.POST)
         user = request.user
 
@@ -68,7 +68,7 @@ def hotelpage(request, hotel_id):
 
 
 
-def bookhotel(request):
+def bookhotel(request): #hotel booking form on hotel detail page
     if request.method == "POST":
         hotel_id = request.POST.get('hotel', '')
         check_in = request.POST.get('check_in')
@@ -78,6 +78,7 @@ def bookhotel(request):
 
     hotel = get_object_or_404(Hotel, pk = hotel_id)
 
+    #create an instance of reservation class for the user
     booknow = Reservation (
         user = request.user,
         reservation_name = hotel.hotel_name + " | " + request.user.username,
@@ -93,21 +94,21 @@ def bookhotel(request):
 
     return render(request, 'bookingpage.html', {'hotel':hotel, 'booking':booknow})
 
-def cancelbooking(request):
+def cancelbooking(request): #cancel booking
     if request.method == 'POST':
         reservation_id = request.POST.get('reservation', '')
-    
+    #get reservation by id as primary key
     reservation = get_object_or_404(Reservation, pk = reservation_id)
 
     booked = Reservation.objects.filter(
         user = request.user,
         pk = reservation_id
     )
-    booked.delete()
+    booked.delete() #delete it
     messages.info(request, 'Your reservation was cancelled.')
     return redirect('myaccount')
 
-def accountpage(request):
+def accountpage(request): #show user profile and reservations
     if request.user.is_authenticated:
         reservation_list = Reservation.objects.filter(user = request.user)
         context = {
@@ -183,7 +184,7 @@ def change_password(request):
 
         if form.is_valid():
             form.save()
-            update_session_auth_hash(request, form.user)
+            update_session_auth_hash(request, form.user) #prevent logout after password change
             messages.success(request, 'Your password was successfully changed.')
             return redirect('myaccount')
         else:

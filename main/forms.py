@@ -15,6 +15,7 @@ class EditProfileForm(UserChangeForm):
         model = User
         fields = ['first_name', 'last_name', 'username', 'email']
 
+#Review Form
 class Rateform(forms.ModelForm):
     text = forms.CharField(widget = forms.Textarea(attrs ={'class': 'materialize-textarea'}), required= False)
     rate = forms.ChoiceField(choices= RATE_CHOICES, widget= forms.Select(), required= True)
