@@ -35,7 +35,7 @@ While installing, make sure to install it for all users, install all components,
 - View and edit User Profile
 - Change Password
 - View all available hotels on the **Browse Hotels** page
-- Search for a hotel by its name, or by city
+- Search for a hotel by its name, or by city (Autocomplete)
 - Filter Hotels by Price floor and ceiling
 - View additional details for the hotel
 - See the average rating, ratings and reviews by other users for the hotel
