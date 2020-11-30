@@ -19,7 +19,7 @@ class Hotel(models.Model):
     hotel_city = models.CharField(max_length=20, default="") 
     #hotel_city = models.ForeignKey(Location, on_delete=models.CASCADE)
 
-    hotel_address = models.CharField(max_length=100, default="")
+    hotel_address = models.CharField(max_length=200, default="")
     hotel_price = models.FloatField(default=0.0)
 
     hotel_img = models.ImageField(blank=True, default="")
@@ -35,7 +35,7 @@ class Hotel(models.Model):
     hotel_parking = models.BooleanField(default=False)
     
     def __str__(self):
-        return self.hotel_name
+        return self.hotel_name + " | " + self.hotel_city
 
 class HotelRating(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
